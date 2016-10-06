@@ -16,7 +16,7 @@ import junit.framework.TestCase;
 public class SolicitacaoTest extends TestCase {
 
 	@BeforeClass
-	public void setUp() {
+	public static void setUp() {
 
 	}
 
