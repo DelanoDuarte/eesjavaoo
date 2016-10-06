@@ -1,16 +1,16 @@
 package br.com.app.testes;
 
-import static org.junit.Assert.assertEquals;
-
 import org.junit.Test;
 
 import br.com.app.domain.Funcionario;
 import br.com.app.domain.Solicitacao;
+import br.com.app.domain.Status;
 import br.com.app.domain.StatusAguardandoChefia;
 import br.com.app.domain.StatusAguardandoRH;
 import br.com.app.domain.StatusRecusada;
+import junit.framework.TestCase;
 
-public class AguardandoChefiaTest {
+public class AguardandoChefiaTest extends TestCase{
 
 	@Test(expected = IllegalStateException.class)
 	public void testSolicitar() throws Exception {
@@ -18,16 +18,24 @@ public class AguardandoChefiaTest {
 		instance.solicitar();
 	}
 
+	@Test
 	public void testAprovar() throws Exception {
 		StatusAguardandoChefia instance = montaCenario();
 		instance.aprovar();
-		assertEquals(new StatusAguardandoRH(), instance.solicitacao.status);
+		Status statusEsperado = new StatusAguardandoRH();
+		//statusEsperado = instance.solicitacao.status;
+
+		assertEquals(statusEsperado, instance.solicitacao.status);
 	}
 
+	@Test
 	public void testRecusar() throws Exception {
 		StatusAguardandoChefia instance = montaCenario();
 		instance.recusar();
-		assertEquals(new StatusRecusada(), instance.solicitacao.status);
+		Status statusEsperado = new StatusRecusada();
+		statusEsperado = instance.solicitacao.status;
+		
+		assertEquals(statusEsperado, instance.solicitacao.status);
 	}
 
 	@Test(expected = IllegalStateException.class)

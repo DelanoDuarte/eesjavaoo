@@ -19,7 +19,7 @@ public class StatusNovaSolicitacao implements Status {
 
 	@Override
 	public void solicitar() {
-
+		this.solicitacao.status = new StatusAguardandoChefia();
 	}
 
 	/*
@@ -51,6 +51,12 @@ public class StatusNovaSolicitacao implements Status {
 	public void retomar(String motivo) {
 		// TODO Auto-generated method stub
 
+	}
+
+	@Override
+	public Solicitacao getSolicitacao(Solicitacao solicitacao) {
+		this.solicitacao = solicitacao;
+		return solicitacao;
 	}
 
 }

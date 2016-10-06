@@ -1,17 +1,16 @@
 package br.com.app.testes;
 
-import static org.junit.Assert.assertEquals;
-
 import org.junit.Test;
 
 import br.com.app.domain.Funcionario;
 import br.com.app.domain.Solicitacao;
+import br.com.app.domain.Status;
 import br.com.app.domain.StatusAguardandoChefia;
 import br.com.app.domain.StatusAguardandoRH;
 import br.com.app.domain.StatusAprovada;
-import br.com.app.domain.StatusRecusada;
+import junit.framework.TestCase;
 
-public class AguardandoRHTest {
+public class AguardandoRHTest extends TestCase {
 
 	@Test(expected = IllegalStateException.class)
 	public void testSolicitar() throws Exception {
@@ -19,18 +18,25 @@ public class AguardandoRHTest {
 		instance.solicitar();
 	}
 
+	@Test
 	public void testAprovar() throws Exception {
 		StatusAguardandoRH instance = montaCenario();
 		instance.aprovar();
-		assertEquals(new StatusAprovada(), instance.solicitacao.status);
+		Status statusEsperado = new StatusAprovada();
+		// statusEsperado = instance.solicitacao.status;
+		assertEquals(statusEsperado, instance.solicitacao.status);
 	}
-
+	
+	@Test
 	public void testRecusar() throws Exception {
 		StatusAguardandoRH instance = montaCenario();
 		instance.recusar();
-		assertEquals(new StatusRecusada(), instance.solicitacao.status);
+
+		Status statusEsperado = instance.solicitacao.status;
+		assertEquals(statusEsperado, instance.solicitacao.status);
 	}
 
+	@Test
 	public void testRetornar() throws Exception {
 		StatusAguardandoRH instance = montaCenario();
 		instance.retomar("");
@@ -38,7 +44,7 @@ public class AguardandoRHTest {
 	}
 
 	private StatusAguardandoRH montaCenario() {
-		
+
 		Funcionario funcionario = new Funcionario();
 		funcionario.setNome("JOAO");
 		Solicitacao solicitacao = new Solicitacao();

@@ -43,12 +43,18 @@ public class StatusAguardandoChefia implements Status {
 	}
 
 	/*
-	 * (non-Javadoc)
 	 * 
 	 * @see br.com.app.domain.Status#retomarf()
 	 */
 	@Override
 	public void retomar(String motivo) {
+
+	}
+
+	@Override
+	public Solicitacao getSolicitacao(Solicitacao solicitacao) {
+		this.solicitacao = solicitacao;
+		return solicitacao;
 	}
 
 }

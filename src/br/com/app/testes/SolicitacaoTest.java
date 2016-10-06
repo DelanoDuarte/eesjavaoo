@@ -1,7 +1,5 @@
 package br.com.app.testes;
 
-import static org.junit.Assert.assertEquals;
-
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -13,11 +11,12 @@ import br.com.app.domain.StatusAguardandoRH;
 import br.com.app.domain.StatusAprovada;
 import br.com.app.domain.StatusNovaSolicitacao;
 import br.com.app.domain.StatusRecusada;
+import junit.framework.TestCase;
 
-public class SolicitacaoTest {
+public class SolicitacaoTest extends TestCase {
 
 	@BeforeClass
-	public static void setUp() {
+	public void setUp() {
 
 	}
 

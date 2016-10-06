@@ -9,6 +9,8 @@ package br.com.app.domain;
  */
 public interface Status {
 
+	public Solicitacao getSolicitacao(Solicitacao solicitacao);
+
 	public void solicitar();
 
 	public void aprovar();

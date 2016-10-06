@@ -1,15 +1,14 @@
 package br.com.app.testes;
 
-import static org.junit.Assert.assertEquals;
-
 import org.junit.Test;
 
 import br.com.app.domain.Funcionario;
 import br.com.app.domain.Solicitacao;
 import br.com.app.domain.StatusAguardandoChefia;
 import br.com.app.domain.StatusNovaSolicitacao;
+import junit.framework.TestCase;
 
-public class NovaSolicitacaoTest {
+public class NovaSolicitacaoTest extends TestCase {
 
 	@Test
 	public void testSolicitar() {
@@ -39,7 +38,7 @@ public class NovaSolicitacaoTest {
 	}
 
 	private StatusNovaSolicitacao montaCenario() {
-		// Cenário
+
 		Funcionario funcionario = new Funcionario();
 		funcionario.setNome("JOAO");
 		Solicitacao solicitacao = new Solicitacao();

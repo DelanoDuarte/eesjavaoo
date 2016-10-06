@@ -23,7 +23,7 @@ public class Solicitacao implements Serializable {
 	private String motivo;
 	private String observacao;
 	private Funcionario funcionario;
-	public Status status = new StatusNovaSolicitacao();
+	public Status status;
 
 	public Long getId() {
 		return id;

@@ -28,4 +28,10 @@ public class StatusRecusada implements Status {
 
 	}
 
+	@Override
+	public Solicitacao getSolicitacao(Solicitacao solicitacao) {
+		this.solicitacao = solicitacao;
+		return solicitacao;
+	}
+
 }

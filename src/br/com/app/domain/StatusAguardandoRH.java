@@ -28,8 +28,13 @@ public class StatusAguardandoRH implements Status {
 
 	@Override
 	public void retomar(String motivo) {
-		this.solicitacao.status = new StatusNovaSolicitacao();
+		this.solicitacao.status = new StatusAguardandoChefia();
 
 	}
 
+	@Override
+	public Solicitacao getSolicitacao(Solicitacao solicitacao) {
+		this.solicitacao = solicitacao;
+		return solicitacao;
+	}
 }

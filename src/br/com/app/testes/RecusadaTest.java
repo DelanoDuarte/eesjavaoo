@@ -3,8 +3,9 @@ package br.com.app.testes;
 import org.junit.Test;
 
 import br.com.app.domain.StatusRecusada;
+import junit.framework.TestCase;
 
-public class RecusadaTest {
+public class RecusadaTest extends TestCase {
 
 	@Test(expected = IllegalStateException.class)
 	public void testSolicitar() throws Exception {
