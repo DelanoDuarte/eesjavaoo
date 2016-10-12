@@ -6,6 +6,7 @@ import br.com.app.domain.Funcionario;
 import br.com.app.domain.Solicitacao;
 import br.com.app.domain.StatusAguardandoChefia;
 import br.com.app.domain.StatusAguardandoRH;
+import br.com.app.domain.StatusRecusada;
 import junit.framework.TestCase;
 
 public class AguardandoChefiaTest extends TestCase {
@@ -25,16 +26,23 @@ public class AguardandoChefiaTest extends TestCase {
 		StatusAguardandoChefia instance = montaCenario();
 		instance.aprovar(solicitacao);
 
+		// assertTrue(solicitacao.getStatus().equals(new StatusAguardandoRH()));
+
+		// assertSame(solicitacao.getStatus(), solicitacao.getStatus());
+
 		assertEquals(new StatusAguardandoRH(), solicitacao.getStatus());
 	}
 
-	/*
-	 * @Test public void testRecusar() throws Exception { StatusAguardandoChefia
-	 * instance = montaCenario(); instance.recusar(); Status statusEsperado =
-	 * new StatusRecusada(); statusEsperado = instance.solicitacao.status;
-	 * 
-	 * assertEquals(statusEsperado, instance.solicitacao.status); }
-	 */
+	@Test
+	public void testRecusar() throws Exception {
+		StatusAguardandoChefia instance = montaCenario();
+
+		Solicitacao solicitacao = new Solicitacao();
+
+		instance.recusar(solicitacao);
+		
+		assertEquals(new StatusRecusada(), solicitacao.getStatus());
+	}
 
 	@Test(expected = IllegalStateException.class)
 	public void testRetornar() throws Exception {

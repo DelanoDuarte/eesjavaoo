@@ -23,7 +23,7 @@ public class Solicitacao implements Serializable {
 	private String motivo;
 	private String observacao;
 	private Funcionario funcionario;
-	private Status status;
+	private Status status = new StatusNovaSolicitacao();
 
 	public Long getId() {
 		return id;
@@ -77,24 +77,49 @@ public class Solicitacao implements Serializable {
 		return status;
 	}
 
-	public void setStatus(Status status) {
+	public void setStatus(final Status status) {
 		this.status = status;
 	}
 
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((status == null) ? 0 : status.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (!(obj instanceof Solicitacao))
+			return false;
+		Solicitacao other = (Solicitacao) obj;
+		if (status == null) {
+			if (other.status != null)
+				return false;
+		} else if (!status.equals(other.status))
+			return false;
+		return true;
+	}
+
 	public void solicitar() {
-		throw new UnsupportedOperationException("Metodo ainda nao implementado");
+		status.solicitar(this);
 	}
 
 	public void aprovar() {
-		throw new UnsupportedOperationException("Metodo ainda nao implementado");
+		status.aprovar(this);
 	}
 
 	public void recusar() {
-		throw new UnsupportedOperationException("Metodo ainda nao implementado");
+		status.recusar(this);
 	}
 
 	public void retomar(String motivo) {
-		throw new UnsupportedOperationException("Metodo ainda nao implementadof");
+		status.retomar(motivo);
 	}
 
 }

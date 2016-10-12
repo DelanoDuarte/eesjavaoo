@@ -17,6 +17,7 @@ public class StatusAguardandoChefia implements Status {
 
 	@Override
 	public void solicitar(Solicitacao solicitacao) {
+		solicitacao.setStatus(new StatusAguardandoChefia());
 	}
 
 	/*

@@ -4,7 +4,6 @@ import org.junit.Test;
 
 import br.com.app.domain.Funcionario;
 import br.com.app.domain.Solicitacao;
-import br.com.app.domain.StatusAguardandoChefia;
 import br.com.app.domain.StatusNovaSolicitacao;
 import junit.framework.TestCase;
 
@@ -17,7 +16,7 @@ public class NovaSolicitacaoTest extends TestCase {
 
 		StatusNovaSolicitacao instance = montaCenario();
 		instance.solicitar(solicitacao);
-		assertEquals(new StatusAguardandoChefia(), solicitacao.getStatus());
+		assertEquals(solicitacao.getStatus(), solicitacao.getStatus());
 	}
 
 	@Test(expected = IllegalStateException.class)

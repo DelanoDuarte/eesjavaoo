@@ -17,6 +17,7 @@ public class StatusNovaSolicitacao implements Status {
 
 	@Override
 	public void solicitar(Solicitacao solicitacao) {
+
 	}
 
 	/*
@@ -26,7 +27,6 @@ public class StatusNovaSolicitacao implements Status {
 	 */
 	@Override
 	public void aprovar(Solicitacao solicitacao) {
-
 	}
 
 	/*
@@ -36,7 +36,6 @@ public class StatusNovaSolicitacao implements Status {
 	 */
 	@Override
 	public void recusar(Solicitacao solicitacao) {
-
 	}
 
 	/*
@@ -46,7 +45,6 @@ public class StatusNovaSolicitacao implements Status {
 	 */
 	@Override
 	public void retomar(String motivo) {
-		// TODO Auto-generated method stub
 
 	}
 

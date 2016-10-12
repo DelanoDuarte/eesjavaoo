@@ -20,8 +20,7 @@ public class SolicitacaoTest extends TestCase {
 
 		solicitacao.solicitar();
 
-		Status statusEsperado = new StatusAguardandoChefia();
-		assertEquals(statusEsperado, solicitacao.getStatus());
+		assertEquals(new StatusAguardandoChefia(), solicitacao.getStatus());
 	}
 
 	private Solicitacao montaCenario() {
