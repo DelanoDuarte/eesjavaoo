@@ -1,6 +1,5 @@
 package br.com.app.testes;
 
-import org.junit.BeforeClass;
 import org.junit.Test;
 
 import br.com.app.domain.Funcionario;
@@ -15,11 +14,6 @@ import junit.framework.TestCase;
 
 public class SolicitacaoTest extends TestCase {
 
-	@BeforeClass
-	public static void setUp() {
-
-	}
-
 	@Test
 	public void testSolicitar() throws Exception {
 		Solicitacao solicitacao = montaCenario();
@@ -27,7 +21,7 @@ public class SolicitacaoTest extends TestCase {
 		solicitacao.solicitar();
 
 		Status statusEsperado = new StatusAguardandoChefia();
-		assertEquals(statusEsperado, solicitacao.status);
+		assertEquals(statusEsperado, solicitacao.getStatus());
 	}
 
 	private Solicitacao montaCenario() {
@@ -42,13 +36,13 @@ public class SolicitacaoTest extends TestCase {
 	public void testHappyDay() throws Exception {
 		Solicitacao solicitacao = montaCenario();
 
-		Status result1 = solicitacao.status;
+		Status result1 = solicitacao.getStatus();
 		solicitacao.solicitar();
-		Status result2 = solicitacao.status;
+		Status result2 = solicitacao.getStatus();
 		solicitacao.aprovar();
-		Status result3 = solicitacao.status;
+		Status result3 = solicitacao.getStatus();
 		solicitacao.aprovar();
-		Status result4 = solicitacao.status;
+		Status result4 = solicitacao.getStatus();
 
 		assertEquals(new StatusNovaSolicitacao(), result1);
 		assertEquals(new StatusAguardandoChefia(), result2);
@@ -63,7 +57,7 @@ public class SolicitacaoTest extends TestCase {
 		solicitacao.solicitar();
 		solicitacao.recusar();
 
-		assertEquals(new StatusRecusada(), solicitacao.status);
+		assertEquals(new StatusRecusada(), solicitacao.getStatus());
 	}
 
 	@Test
@@ -75,7 +69,7 @@ public class SolicitacaoTest extends TestCase {
 
 		solicitacao.recusar();
 
-		assertEquals(new StatusRecusada(), solicitacao.status);
+		assertEquals(new StatusRecusada(), solicitacao.getStatus());
 	}
 
 	@Test(expected = IllegalStateException.class)

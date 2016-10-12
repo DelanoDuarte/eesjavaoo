@@ -2,22 +2,20 @@ package br.com.app.domain;
 
 public class StatusRecusada implements Status {
 
-	public Solicitacao solicitacao;
-
 	@Override
-	public void solicitar() {
+	public void solicitar(Solicitacao solicitacao) {
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public void aprovar() {
+	public void aprovar(Solicitacao solicitacao) {
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public void recusar() {
+	public void recusar(Solicitacao solicitacao) {
 		// TODO Auto-generated method stub
 
 	}
@@ -30,7 +28,6 @@ public class StatusRecusada implements Status {
 
 	@Override
 	public Solicitacao getSolicitacao(Solicitacao solicitacao) {
-		this.solicitacao = solicitacao;
 		return solicitacao;
 	}
 

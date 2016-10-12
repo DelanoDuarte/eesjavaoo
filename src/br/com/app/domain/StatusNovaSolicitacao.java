@@ -15,11 +15,8 @@ public class StatusNovaSolicitacao implements Status {
 	 * @see br.com.app.domain.Status#solicitar()
 	 */
 
-	public Solicitacao solicitacao;
-
 	@Override
-	public void solicitar() {
-		this.solicitacao.status = new StatusAguardandoChefia();
+	public void solicitar(Solicitacao solicitacao) {
 	}
 
 	/*
@@ -28,7 +25,7 @@ public class StatusNovaSolicitacao implements Status {
 	 * @see br.com.app.domain.Status#aprovar()
 	 */
 	@Override
-	public void aprovar() {
+	public void aprovar(Solicitacao solicitacao) {
 
 	}
 
@@ -38,7 +35,7 @@ public class StatusNovaSolicitacao implements Status {
 	 * @see br.com.app.domain.Status#recusar()
 	 */
 	@Override
-	public void recusar() {
+	public void recusar(Solicitacao solicitacao) {
 
 	}
 
@@ -55,7 +52,6 @@ public class StatusNovaSolicitacao implements Status {
 
 	@Override
 	public Solicitacao getSolicitacao(Solicitacao solicitacao) {
-		this.solicitacao = solicitacao;
 		return solicitacao;
 	}
 

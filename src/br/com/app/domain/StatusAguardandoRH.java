@@ -9,32 +9,28 @@ package br.com.app.domain;
  */
 public class StatusAguardandoRH implements Status {
 
-	public Solicitacao solicitacao;
-
 	@Override
-	public void solicitar() {
+	public void solicitar(Solicitacao solicitacao) {
 
 	}
 
 	@Override
-	public void aprovar() {
-		this.solicitacao.status = new StatusAprovada();
+	public void aprovar(Solicitacao solicitacao) {
+		solicitacao.setStatus(new StatusAprovada());
 	}
 
 	@Override
-	public void recusar() {
-		this.solicitacao.status = new StatusRecusada();
+	public void recusar(Solicitacao solicitacao) {
+
 	}
 
 	@Override
 	public void retomar(String motivo) {
-		this.solicitacao.status = new StatusAguardandoChefia();
 
 	}
 
 	@Override
 	public Solicitacao getSolicitacao(Solicitacao solicitacao) {
-		this.solicitacao = solicitacao;
 		return solicitacao;
 	}
 }

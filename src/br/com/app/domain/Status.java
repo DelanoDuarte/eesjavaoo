@@ -11,11 +11,11 @@ public interface Status {
 
 	public Solicitacao getSolicitacao(Solicitacao solicitacao);
 
-	public void solicitar();
+	public void solicitar(Solicitacao solicitacao);
 
-	public void aprovar();
+	public void aprovar(Solicitacao solicitacao);
 
-	public void recusar();
+	public void recusar(Solicitacao solicitacao);
 
 	public void retomar(String motivo);
 }

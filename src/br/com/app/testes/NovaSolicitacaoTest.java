@@ -12,23 +12,30 @@ public class NovaSolicitacaoTest extends TestCase {
 
 	@Test
 	public void testSolicitar() {
+
+		Solicitacao solicitacao = new Solicitacao();
+
 		StatusNovaSolicitacao instance = montaCenario();
-		instance.solicitar();
-		assertEquals(new StatusAguardandoChefia(), instance.solicitacao.status);
+		instance.solicitar(solicitacao);
+		assertEquals(new StatusAguardandoChefia(), solicitacao.getStatus());
 	}
 
 	@Test(expected = IllegalStateException.class)
 	public void testAprovar() throws Exception {
 
+		Solicitacao solicitacao = new Solicitacao();
+
 		StatusNovaSolicitacao instance = montaCenario();
-		instance.aprovar();
+		instance.aprovar(solicitacao);
 	}
 
 	@Test(expected = IllegalStateException.class)
 	public void testRecusar() throws Exception {
 
+		Solicitacao solicitacao = new Solicitacao();
+
 		StatusNovaSolicitacao instance = montaCenario();
-		instance.recusar();
+		instance.recusar(solicitacao);
 	}
 
 	@Test(expected = IllegalStateException.class)
@@ -45,7 +52,7 @@ public class NovaSolicitacaoTest extends TestCase {
 		solicitacao.setFuncionario(funcionario);
 
 		StatusNovaSolicitacao instance = new StatusNovaSolicitacao();
-		instance.solicitacao = solicitacao;
+		instance.getSolicitacao(solicitacao);
 		return instance;
 	}
 }

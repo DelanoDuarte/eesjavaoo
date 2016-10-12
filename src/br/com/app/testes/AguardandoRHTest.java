@@ -4,43 +4,53 @@ import org.junit.Test;
 
 import br.com.app.domain.Funcionario;
 import br.com.app.domain.Solicitacao;
-import br.com.app.domain.Status;
 import br.com.app.domain.StatusAguardandoChefia;
 import br.com.app.domain.StatusAguardandoRH;
 import br.com.app.domain.StatusAprovada;
+import br.com.app.domain.StatusRecusada;
 import junit.framework.TestCase;
 
 public class AguardandoRHTest extends TestCase {
 
 	@Test(expected = IllegalStateException.class)
 	public void testSolicitar() throws Exception {
+
+		Solicitacao solicitacao = new Solicitacao();
+
 		StatusAguardandoRH instance = montaCenario();
-		instance.solicitar();
+		instance.solicitar(solicitacao);
 	}
 
 	@Test
 	public void testAprovar() throws Exception {
+
+		Solicitacao solicitacao = new Solicitacao();
+
 		StatusAguardandoRH instance = montaCenario();
-		instance.aprovar();
-		Status statusEsperado = new StatusAprovada();
-		// statusEsperado = instance.solicitacao.status;
-		assertEquals(statusEsperado, instance.solicitacao.status);
+		instance.aprovar(solicitacao);
+
+		assertEquals(new StatusAprovada(), solicitacao.getStatus());
 	}
-	
+
 	@Test
 	public void testRecusar() throws Exception {
-		StatusAguardandoRH instance = montaCenario();
-		instance.recusar();
 
-		Status statusEsperado = instance.solicitacao.status;
-		assertEquals(statusEsperado, instance.solicitacao.status);
+		Solicitacao solicitacao = new Solicitacao();
+
+		StatusAguardandoRH instance = montaCenario();
+		instance.recusar(solicitacao);
+
+		assertEquals(new StatusRecusada(), solicitacao.getStatus());
 	}
 
 	@Test
 	public void testRetornar() throws Exception {
+
+		Solicitacao solicitacao = new Solicitacao();
+
 		StatusAguardandoRH instance = montaCenario();
 		instance.retomar("");
-		assertEquals(new StatusAguardandoChefia(), instance.solicitacao.status);
+		assertEquals(new StatusAguardandoChefia(), solicitacao.getStatus());
 	}
 
 	private StatusAguardandoRH montaCenario() {
@@ -51,7 +61,7 @@ public class AguardandoRHTest extends TestCase {
 		solicitacao.setFuncionario(funcionario);
 
 		StatusAguardandoRH instance = new StatusAguardandoRH();
-		instance.solicitacao = solicitacao;
+		instance.getSolicitacao(solicitacao);
 		return instance;
 	}
 

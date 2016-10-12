@@ -15,10 +15,8 @@ public class StatusAprovada implements Status {
 	 * @see br.com.app.domain.Status#solicitar()
 	 */
 
-	public Solicitacao solicitacao;
-
 	@Override
-	public void solicitar() {
+	public void solicitar(Solicitacao solicitacao) {
 
 	}
 
@@ -28,7 +26,7 @@ public class StatusAprovada implements Status {
 	 * @see br.com.app.domain.Status#aprovar()
 	 */
 	@Override
-	public void aprovar() {
+	public void aprovar(Solicitacao solicitacao) {
 		// TODO Auto-generated method stub
 
 	}
@@ -39,7 +37,7 @@ public class StatusAprovada implements Status {
 	 * @see br.com.app.domain.Status#recusar()
 	 */
 	@Override
-	public void recusar() {
+	public void recusar(Solicitacao solicitacao) {
 
 	}
 
@@ -55,7 +53,6 @@ public class StatusAprovada implements Status {
 
 	@Override
 	public Solicitacao getSolicitacao(Solicitacao solicitacao) {
-		this.solicitacao = solicitacao;
 		return solicitacao;
 	}
 }

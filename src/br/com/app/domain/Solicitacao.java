@@ -23,7 +23,7 @@ public class Solicitacao implements Serializable {
 	private String motivo;
 	private String observacao;
 	private Funcionario funcionario;
-	public Status status;
+	private Status status;
 
 	public Long getId() {
 		return id;
@@ -71,6 +71,14 @@ public class Solicitacao implements Serializable {
 
 	public void setFuncionario(Funcionario funcionario) {
 		this.funcionario = funcionario;
+	}
+
+	public Status getStatus() {
+		return status;
+	}
+
+	public void setStatus(Status status) {
+		this.status = status;
 	}
 
 	public void solicitar() {

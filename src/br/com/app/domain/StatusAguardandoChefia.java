@@ -15,11 +15,8 @@ public class StatusAguardandoChefia implements Status {
 	 * @see br.com.app.domain.Status#solicitar()
 	 */
 
-	public Solicitacao solicitacao;
-
 	@Override
-	public void solicitar() {
-
+	public void solicitar(Solicitacao solicitacao) {
 	}
 
 	/*
@@ -28,8 +25,8 @@ public class StatusAguardandoChefia implements Status {
 	 * @see br.com.app.domain.Status#aprovar()
 	 */
 	@Override
-	public void aprovar() {
-		this.solicitacao.status = new StatusAguardandoRH();
+	public void aprovar(Solicitacao solicitacao) {
+		solicitacao.setStatus(new StatusAguardandoRH());
 	}
 
 	/*
@@ -38,8 +35,8 @@ public class StatusAguardandoChefia implements Status {
 	 * @see br.com.app.domain.Status#recusar()
 	 */
 	@Override
-	public void recusar() {
-		this.solicitacao.status = new StatusRecusada();
+	public void recusar(Solicitacao solicitacao) {
+		solicitacao.setStatus(new StatusRecusada());
 	}
 
 	/*
@@ -53,7 +50,6 @@ public class StatusAguardandoChefia implements Status {
 
 	@Override
 	public Solicitacao getSolicitacao(Solicitacao solicitacao) {
-		this.solicitacao = solicitacao;
 		return solicitacao;
 	}
 
